@@ -6,8 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 // Database
-var mongo = require('mongoskin');
-var db = mongo.db("mongodb://localhost:27017/nodetest1", {native_parser:true});
+var Provider = require('./provider');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -37,7 +36,7 @@ app.all("/*", function(req, res, next) {
 });
 
 app.use(function(req,res,next){
-    req.db = db;
+    req.Provider = Provider;
     next();
 });
 
