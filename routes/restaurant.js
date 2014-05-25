@@ -37,6 +37,15 @@ router.get('/foods', function(req, res) {
 	});
 });
 
+router.get('/foods/:id', function(req, res) {
+	req.Provider.findById({
+		req: req,
+		res: res,
+		tagName: 'food',
+		collectionName: 'food',
+	});
+});
+
 router.get('/tabitems', function(req, res) {
 	req.Provider.findAll({
 		req: req,
@@ -50,13 +59,13 @@ router.get('/tabitems/:id', function(req, res) {
 	req.Provider.findById({
 		req: req,
 		res: res,
-		tagName: 'tabItem',
+		tagName: 'tabitem',
 		collectionName: 'tabitems',
 	});
 });
 
 router.get('/tabs', function(req, res) {
-	Mongodb.findAll({
+	req.Provider.findAll({
 		req: req,
 		res: res,
 		tagName: 'tabs',
