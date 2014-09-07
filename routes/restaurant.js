@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/', function(req, res) {
+router.get('/', function (req, res) {
 	res.json({
 		author: "Michael Godden",
 		app: "Restaurant",
@@ -9,7 +9,7 @@ router.get('/', function(req, res) {
 	});
 });
 
-router.get('/tables', function(req, res) {
+router.get('/tables', function (req, res) {
 	req.Provider.findAll({
 		req: req,
 		res: res,
@@ -19,7 +19,7 @@ router.get('/tables', function(req, res) {
 	});
 });
 
-router.get('/tables/:id', function(req, res) {
+router.get('/tables/:id', function (req, res) {
 	req.Provider.findById({
 		req: req,
 		res: res,
@@ -28,7 +28,7 @@ router.get('/tables/:id', function(req, res) {
 	});
 });
 
-router.get('/foods', function(req, res) {
+router.get('/foods', function (req, res) {
 	req.Provider.findAll({
 		req: req,
 		res: res,
@@ -37,7 +37,7 @@ router.get('/foods', function(req, res) {
 	});
 });
 
-router.get('/foods/:id', function(req, res) {
+router.get('/foods/:id', function (req, res) {
 	req.Provider.findById({
 		req: req,
 		res: res,
@@ -46,7 +46,7 @@ router.get('/foods/:id', function(req, res) {
 	});
 });
 
-router.get('/tabitems', function(req, res) {
+router.get('/tabitems', function (req, res) {
 	req.Provider.findAll({
 		req: req,
 		res: res,
@@ -55,7 +55,7 @@ router.get('/tabitems', function(req, res) {
 	});
 });
 
-router.get('/tabitems/:id', function(req, res) {
+router.get('/tabitems/:id', function (req, res) {
 	req.Provider.findById({
 		req: req,
 		res: res,
@@ -64,7 +64,7 @@ router.get('/tabitems/:id', function(req, res) {
 	});
 });
 
-router.get('/tabs', function(req, res) {
+router.get('/tabs', function (req, res) {
 	req.Provider.findAll({
 		req: req,
 		res: res,
@@ -73,7 +73,7 @@ router.get('/tabs', function(req, res) {
 	});
 });
 
-router.get('/tabs/:id', function(req, res) {
+router.get('/tabs/:id', function (req, res) {
 	req.Provider.findById({
 		req: req,
 		res: res,
