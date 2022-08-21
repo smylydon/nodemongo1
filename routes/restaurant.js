@@ -1,85 +1,31 @@
-var express = require('express');
-var router = express.Router();
+import { Router } from "express";
+import food from "../controllers/food.js";
+import table from "../controllers/table.js";
+import tab from "../controllers/tab.js";
+import tabitem from "../controllers/tabitem.js";
 
-router.get('/', function (req, res) {
-	res.json({
-		author: "Michael Godden",
-		app: "Restaurant",
-		ver: "0.0.1"
-	});
+const router = Router();
+
+router.get("/", function (req, res) {
+  console.log("akf;lsdfja;sdfasd");
+
+  res.status(404).json({
+    author: "Michael Godden",
+    app: "Restaurant",
+    ver: "1.0.0",
+  });
 });
 
-router.get('/tables', function (req, res) {
-	req.Provider.findAll({
-		req: req,
-		res: res,
-		tagName: 'tables',
-		collectionName: 'tables',
-		sort: {table: 1}
-	});
-});
+router.get("/table", table.getAllTables);
+router.get("/table/:id", table.getTable);
 
-router.get('/tables/:id', function (req, res) {
-	req.Provider.findById({
-		req: req,
-		res: res,
-		tagName: 'table',
-		collectionName: 'tables',
-	});
-});
+router.get("/food", food.getAllFoods);
+router.get("/food/:id", food.getFood);
 
-router.get('/foods', function (req, res) {
-	req.Provider.findAll({
-		req: req,
-		res: res,
-		tagName: 'foods',
-		collectionName: 'food',
-	});
-});
+router.get("/tabitem", tabitem.getAllTabItems);
+router.get("/tabitem/:id", tabitem.getTabItem);
 
-router.get('/foods/:id', function (req, res) {
-	req.Provider.findById({
-		req: req,
-		res: res,
-		tagName: 'food',
-		collectionName: 'food',
-	});
-});
+router.get("/tab", tab.getAllTabs);
+router.get("/tab/:id", tab.getTab);
 
-router.get('/tabitems', function (req, res) {
-	req.Provider.findAll({
-		req: req,
-		res: res,
-		tagName: 'tabitems',
-		collectionName: 'tabitems',
-	});
-});
-
-router.get('/tabitems/:id', function (req, res) {
-	req.Provider.findById({
-		req: req,
-		res: res,
-		tagName: 'tabitem',
-		collectionName: 'tabitems',
-	});
-});
-
-router.get('/tabs', function (req, res) {
-	req.Provider.findAll({
-		req: req,
-		res: res,
-		tagName: 'tabs',
-		collectionName: 'tabs',
-	});
-});
-
-router.get('/tabs/:id', function (req, res) {
-	req.Provider.findById({
-		req: req,
-		res: res,
-		tagName: 'tab',
-		collectionName: 'tabs',
-	});
-});
-
-module.exports = router;
+export default router;
